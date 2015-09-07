@@ -1,16 +1,14 @@
 module IttfPoints
   class Player
     attr_reader :rating_points, :gained_rating_points, :lost_rating_points, :points_difference
-    attr_accessor :myself, :opponent
-    alias_method :name, :myself
+    attr_accessor :opponent
 
-    def initialize(name: 'John Doe', rating_points: nil, weighting: nil)
-      @myself = name
+    def initialize(rating_points: nil, weighting: nil)
       @rating_points = rating_points.to_i
       @weighting = weighting.downcase.to_sym
     end
 
-    def win(name: nil, rating_points: nil)
+    def win(rating_points, name: nil)
       @opponent_rating_pts = rating_points.to_i
       (@opponent ||= []) << name
       (@opponent_rating_points ||= []) << @opponent_rating_pts
@@ -19,7 +17,7 @@ module IttfPoints
       self
     end
 
-    def lose(name: nil, rating_points: nil)
+    def lose(rating_points, name: nil)
       @opponent_rating_pts = rating_points.to_i
       (@opponent ||= []) << name
       (@opponent_rating_points ||= []) << @opponent_rating_pts

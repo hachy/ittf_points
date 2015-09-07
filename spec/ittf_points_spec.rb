@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe IttfPoints do
   # cf. 9/2015
-  let(:player) { IttfPoints::Player.new(name: 'Ito Mima', rating_points: 2572, weighting: :R2) }
+  let(:player) { IttfPoints::Player.new(rating_points: 2572, weighting: :R2) }
 
   context 'when player won' do
     before do
       player.
-        win(rating_points: 1412).
-        win(name: 'SOO', rating_points: '2029')
+        win(1412).
+        win('2029', name: 'SOO')
     end
 
     describe '#opponent' do
@@ -35,9 +35,9 @@ describe IttfPoints do
   context 'when player lost' do
     before do
       player.
-        lose(rating_points: 2145).
-        lose(rating_points: 2189).
-        lose(name: 'Ishigaki', rating_points: '2447')
+        lose(2145).
+        lose(2189).
+        lose('2447', name: 'Ishigaki')
     end
 
     describe '#opponent' do
@@ -64,11 +64,11 @@ describe IttfPoints do
   context 'when player won & lost' do
     before do
       player.
-        win(rating_points: 1412).
-        win(name: 'SOO', rating_points: '2029').
-        lose(rating_points: 2145).
-        lose(rating_points: 2189).
-        lose(name: 'Ishigaki', rating_points: '2447')
+        win(1412).
+        win('2029', name: 'SOO').
+        lose(2145).
+        lose(2189).
+        lose('2447', name: 'Ishigaki')
     end
 
     describe '#opponent' do
