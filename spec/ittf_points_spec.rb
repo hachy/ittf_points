@@ -19,12 +19,12 @@ describe IttfPoints do
       it { expect(player.points_difference).to eq [1160, 543] }
     end
 
-    describe '#gained_points' do
-      it { expect(player.gained_points).to eq [0, 2] }
+    describe '#gained_rating_points' do
+      it { expect(player.gained_rating_points).to eq [0, 2] }
     end
 
-    describe '#lost_points' do
-      it { expect(player.lost_points).to be_nil }
+    describe '#lost_rating_points' do
+      it { expect(player.lost_rating_points).to be_nil }
     end
 
     describe '#new_added_rating_points' do
@@ -48,12 +48,12 @@ describe IttfPoints do
       it { expect(player.points_difference).to eq [427, 383, 125] }
     end
 
-    describe '#gained_points' do
-      it { expect(player.gained_points).to be_nil }
+    describe '#gained_rating_points' do
+      it { expect(player.gained_rating_points).to be_nil }
     end
 
-    describe '#lost_points' do
-      it { expect(player.lost_points).to eq [24, 21, 12] }
+    describe '#lost_rating_points' do
+      it { expect(player.lost_rating_points).to eq [24, 21, 12] }
     end
 
     describe '#new_added_rating_points' do
@@ -79,12 +79,12 @@ describe IttfPoints do
       it { expect(player.points_difference).to eq [1160, 543, 427, 383, 125] }
     end
 
-    describe '#gained_points' do
-      it { expect(player.gained_points).to eq [0, 2] }
+    describe '#gained_rating_points' do
+      it { expect(player.gained_rating_points).to eq [0, 2] }
     end
 
-    describe '#lost_points' do
-      it { expect(player.lost_points).to eq [24, 21, 12] }
+    describe '#lost_rating_points' do
+      it { expect(player.lost_rating_points).to eq [24, 21, 12] }
     end
 
     describe '#new_added_rating_points' do

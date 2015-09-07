@@ -1,6 +1,6 @@
 module IttfPoints
   class Player
-    attr_reader :rating_points, :gained_points, :lost_points, :points_difference
+    attr_reader :rating_points, :gained_rating_points, :lost_rating_points, :points_difference
     attr_accessor :myself, :opponent
     alias_method :name, :myself
 
@@ -29,14 +29,14 @@ module IttfPoints
     end
 
     def new_added_rating_points
-      if defined?(@gained_points)
-        gained = @gained_points.inject(:+)
+      if defined?(@gained_rating_points)
+        gained = @gained_rating_points.inject(:+)
       else
         gained = 0
       end
 
-      if defined?(@lost_points)
-        lost = @lost_points.inject(:+)
+      if defined?(@lost_rating_points)
+        lost = @lost_rating_points.inject(:+)
       else
         lost = 0
       end
@@ -99,9 +99,9 @@ module IttfPoints
 
     def results(idx)
       if @winner_flag
-        (@gained_points ||= []) << @winners_pts_ary[idx]
+        (@gained_rating_points ||= []) << @winners_pts_ary[idx]
       else
-        (@lost_points ||= []) << @losers_pts_ary[idx]
+        (@lost_rating_points ||= []) << @losers_pts_ary[idx]
       end
     end
   end
