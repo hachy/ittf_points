@@ -1,5 +1,3 @@
-require "ittf_points/version"
-
-module IttfPoints
-  # Your code goes here...
-end
+require 'ittf_points/version'
+require 'ittf_points/r'
+require 'ittf_points/player'
