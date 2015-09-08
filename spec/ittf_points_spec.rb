@@ -8,11 +8,7 @@ describe IttfPoints do
     before do
       player.
         win(1412).
-        win('2029', name: 'SOO')
-    end
-
-    describe '#opponent' do
-      it { expect(player.opponent).to eq [nil, 'SOO'] }
+        win('2029')
     end
 
     describe '#points_difference' do
@@ -37,11 +33,7 @@ describe IttfPoints do
       player.
         lose(2145).
         lose(2189).
-        lose('2447', name: 'Ishigaki')
-    end
-
-    describe '#opponent' do
-      it { expect(player.opponent).to eq [nil, nil, 'Ishigaki'] }
+        lose('2447')
     end
 
     describe '#points_difference' do
@@ -65,14 +57,10 @@ describe IttfPoints do
     before do
       player.
         win(1412).
-        win('2029', name: 'SOO').
+        win('2029').
         lose(2145).
         lose(2189).
-        lose('2447', name: 'Ishigaki')
-    end
-
-    describe '#opponent' do
-      it { expect(player.opponent).to eq [nil, 'SOO', nil, nil, 'Ishigaki'] }
+        lose('2447')
     end
 
     describe '#points_difference' do

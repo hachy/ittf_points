@@ -1,26 +1,21 @@
 module IttfPoints
   class Player
     attr_reader :rating_points, :gained_rating_points, :lost_rating_points, :points_difference
-    attr_accessor :opponent
 
     def initialize(rating_points: nil, weighting: nil)
       @rating_points = rating_points.to_i
       @weighting = weighting.downcase.to_sym
     end
 
-    def win(rating_points, name: nil)
+    def win(rating_points)
       @opponent_rating_pts = rating_points.to_i
-      (@opponent ||= []) << name
-      (@opponent_rating_points ||= []) << @opponent_rating_pts
       @winner_flag = true
       expected_or_unexpected(winner: @rating_points, loser: @opponent_rating_pts)
       self
     end
 
-    def lose(rating_points, name: nil)
+    def lose(rating_points)
       @opponent_rating_pts = rating_points.to_i
-      (@opponent ||= []) << name
-      (@opponent_rating_points ||= []) << @opponent_rating_pts
       @winner_flag = false
       expected_or_unexpected(winner: @opponent_rating_pts, loser: @rating_points)
       self
