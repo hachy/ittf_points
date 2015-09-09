@@ -36,6 +36,13 @@ module IttfPoints
         lose = [5, 6, 7, 8, 10, 12, 14, 16, 18, 20]
         [win, lose]
       end
+
+      alias_method :w1_expected,   :r1_expected
+      alias_method :w1_unexpected, :r1_unexpected
+      alias_method :w2_expected,   :r2_expected
+      alias_method :w2_unexpected, :r2_unexpected
+      alias_method :w3_expected,   :r3_expected
+      alias_method :w3_unexpected, :r3_unexpected
     end
   end
 end

@@ -1,13 +1,28 @@
 require 'spec_helper'
 
 describe IttfPoints do
+  context '`weight` arguments' do
+    describe 'default value' do
+      let(:p1) { IttfPoints::Player.new(rating_points: 2572) }
+      it { expect(p1.weight).to eq(:r2) }
+    end
+
+    describe 'not :r2 but :w2 (alias)' do
+      let(:p1) { IttfPoints::Player.new(rating_points: 2572, weight: :W2) }
+      before do
+        p1.
+          win(1412, '2029').
+          lose([2145, 2189, '2447'])
+      end
+
+      describe '#new_rating_points' do
+        it { expect(p1.new_rating_points).to eq 2517 }
+      end
+    end
+  end
+
   # cf. 9/2015 Ito Mima
   let(:player) { IttfPoints::Player.new(rating_points: 2572, weight: :R2) }
-
-  describe 'default value of `weight` argument' do
-    let(:p1) { IttfPoints::Player.new(rating_points: 2572) }
-    it { expect(p1.weight).to eq(:r2) }
-  end
 
   context 'when player won' do
     before do
