@@ -21,6 +21,9 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+require 'ittf_points'
+include IttfPoints
+
 p1 = Player.new(rating_points: 2731, weight: :r2)
 p1.win([2122, 1471, 2621]).lose(2788)
 # or
