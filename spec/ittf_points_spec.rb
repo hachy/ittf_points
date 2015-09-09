@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe IttfPoints do
-  # cf. 9/2015
+  # cf. 9/2015 Ito Mima
   let(:player) { IttfPoints::Player.new(rating_points: 2572, weight: :R2) }
 
   context 'when player won' do
     before do
-      player.
-        win(1412).
-        win('2029')
+      player.win(1412).win('2029')
     end
 
     describe '#points_difference' do
@@ -30,10 +28,7 @@ describe IttfPoints do
 
   context 'when player lost' do
     before do
-      player.
-        lose(2145).
-        lose(2189).
-        lose('2447')
+      player.lose(2145).lose(2189).lose('2447')
     end
 
     describe '#points_difference' do
@@ -56,11 +51,8 @@ describe IttfPoints do
   context 'when player won & lost' do
     before do
       player.
-        win(1412).
-        win('2029').
-        lose(2145).
-        lose(2189).
-        lose('2447')
+        win(1412, '2029').
+        lose([2145, 2189, '2447'])
     end
 
     describe '#points_difference' do
