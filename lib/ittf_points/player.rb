@@ -7,17 +7,21 @@ module IttfPoints
       @weighting = weighting.downcase.to_sym
     end
 
-    def win(rating_points)
-      @opponent_rating_pts = rating_points.to_i
+    def win(*rating_points)
       @winner_flag = true
-      expected_or_unexpected(winner: @rating_points, loser: @opponent_rating_pts)
+      rating_points.flatten.each do |points|
+        @opponent_rating_pts = points.to_i
+        expected_or_unexpected(winner: @rating_points, loser: @opponent_rating_pts)
+      end
       self
     end
 
-    def lose(rating_points)
-      @opponent_rating_pts = rating_points.to_i
+    def lose(*rating_points)
       @winner_flag = false
-      expected_or_unexpected(winner: @opponent_rating_pts, loser: @rating_points)
+      rating_points.flatten.each do |points|
+        @opponent_rating_pts = points.to_i
+        expected_or_unexpected(winner: @opponent_rating_pts, loser: @rating_points)
+      end
       self
     end
 
