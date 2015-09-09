@@ -4,6 +4,11 @@ describe IttfPoints do
   # cf. 9/2015 Ito Mima
   let(:player) { IttfPoints::Player.new(rating_points: 2572, weight: :R2) }
 
+  describe 'default value of `weight` argument' do
+    let(:p1) { IttfPoints::Player.new(rating_points: 2572) }
+    it { expect(p1.weight).to eq(:r2) }
+  end
+
   context 'when player won' do
     before do
       player.win(1412).win('2029')

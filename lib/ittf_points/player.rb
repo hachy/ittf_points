@@ -1,9 +1,9 @@
 module IttfPoints
   class Player
-    attr_reader :rating_points, :gained_rating_points, :lost_rating_points, :points_difference
+    attr_reader :gained_rating_points, :lost_rating_points, :points_difference
     attr_accessor :weight
 
-    def initialize(rating_points: nil, weight: nil)
+    def initialize(rating_points: nil, weight: :r2)
       @rating_points = rating_points.to_i
       @weight = weight.downcase.to_sym
     end
