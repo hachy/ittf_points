@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe IttfPoints do
   # cf. 9/2015
-  let(:player) { IttfPoints::Player.new(rating_points: 2572, weighting: :R2) }
+  let(:player) { IttfPoints::Player.new(rating_points: 2572, weight: :R2) }
 
   context 'when player won' do
     before do

@@ -1,10 +1,11 @@
 module IttfPoints
   class Player
     attr_reader :rating_points, :gained_rating_points, :lost_rating_points, :points_difference
+    attr_accessor :weight
 
-    def initialize(rating_points: nil, weighting: nil)
+    def initialize(rating_points: nil, weight: nil)
       @rating_points = rating_points.to_i
-      @weighting = weighting.downcase.to_sym
+      @weight = weight.downcase.to_sym
     end
 
     def win(*rating_points)
@@ -44,16 +45,21 @@ module IttfPoints
       new_added_rating_points + @rating_points
     end
 
+    def weighting(weight)
+      @weight = weight.downcase.to_sym
+      self
+    end
+
     private
 
     def expected_or_unexpected(winner: nil, loser: nil)
       if winner > loser
-        weighting_ary = R.__send__("#{@weighting}_expected")
-        @winners_pts_ary, @losers_pts_ary = weighting_ary
+        weight_ary = R.__send__("#{@weight}_expected")
+        @winners_pts_ary, @losers_pts_ary = weight_ary
         expected
       else
-        weighting_ary = R.__send__("#{@weighting}_unexpected")
-        @winners_pts_ary, @losers_pts_ary = weighting_ary
+        weight_ary = R.__send__("#{@weight}_unexpected")
+        @winners_pts_ary, @losers_pts_ary = weight_ary
         unexpected
       end
     end
