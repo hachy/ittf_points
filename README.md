@@ -32,6 +32,10 @@ p1.win([2122, 1471, 2621]).lose(2788)
 puts p1.new_rating_points
 ```
 
+### CLI
+
+	$ ittf_points player 2731 --win 2122 1471 2621 --lose 2788
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/hachy/ittf_points.
